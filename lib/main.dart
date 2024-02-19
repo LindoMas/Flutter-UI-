@@ -1,3 +1,5 @@
+import 'package:day_1/pages/landingPage.dart';
+import 'package:day_1/pages/settings.dart';
 import 'package:flutter/material.dart';
 
 // import 'package:hive/hive.dart';
@@ -17,7 +19,10 @@ class MainApp extends StatelessWidget {
       home: MainPage(),
       // initialRoute: MainPage.id,
 
-      routes: {},
+      routes: {
+        landingPage.id: (context) => landingPage(),
+        Settings.id: (context) => const Settings()
+      },
     );
   }
 }
@@ -99,7 +104,9 @@ class MainPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 3,
                     child: ElevatedButton.icon(
                         // style: ButtonStyle(minimumSize: Size.fromWidth(30)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.popAndPushNamed(context, landingPage.id);
+                        },
                         icon: const Icon(Icons.motion_photos_auto_rounded),
                         label: const Text("Log In")),
                   )
