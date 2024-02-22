@@ -38,14 +38,14 @@ class MainApp extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    "Find your",
+                    "Be Inspired with",
                     style: TextStyle(color: Colors.black87, fontSize: 28),
                   ),
                   SizedBox(
                     height: 4,
                   ),
                   Text(
-                    "New Style",
+                    "ArtInk",
                     style: TextStyle(color: Colors.black, fontSize: 40),
                   ),
                   Container(
@@ -72,13 +72,55 @@ class MainApp extends StatelessWidget {
               height: 20,
             ),
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Today's Promo",
-                style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+              padding: const EdgeInsets.symmetric(horizontal: 28.0),
+              child: Column(
+                children: [
+                  Text(
+                    "Today's Promo",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              height: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[SampleCard("assets/pic0.jpg")],
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget SampleCard(image) {
+    return AspectRatio(
+      aspectRatio: 2 / 3,
+      child: Container(
+        height: 100,
+        width: 60,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(image),
+          ),
+        ),
+        child: Container(
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
+              gradient: LinearGradient(begin: Alignment.bottomRight, stops: [
+                .2,
+                .6
+              ], colors: [
+                Colors.black.withOpacity(.8),
+                Colors.black.withOpacity(.1)
+              ])),
         ),
       ),
     );
